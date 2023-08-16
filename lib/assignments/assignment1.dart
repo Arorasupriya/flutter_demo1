@@ -1,9 +1,6 @@
 // Function Practice
 
 import 'dart:io';
-import 'dart:math';
-
-import 'package:flutter/material.dart';
 
 void main() {
   // Variable declaration
@@ -100,7 +97,8 @@ void main() {
       stdout.write('Please enter operation number 1 or 2 : ');
       var operationNumber = int.parse(stdin.readLineSync()!);
       getLowerUpperRangeODD(operationNumber);
-    } /*else if (choice == 9) {
+    }
+    /*else if (choice == 9) {
       late int checkNumber, sep, getLength;
       List getDigits = [];
 
@@ -134,12 +132,12 @@ void main() {
         indexCount++;
       }
       print("Sum of all elements : $sum");
-     *//* if (checkNumber == sum) {
+     */ /* if (checkNumber == sum) {
         stdout.write(
             'Congratulations your logic is working $checkNumber is Armstrong number');
       } else {
         stdout.write(' $checkNumber is Not Armstrong number');
-      }*//*
+      }*/ /*
     }*/
     stdout.write('\ndo u want to continue Y/N :');
     ch = stdin.readLineSync().toString();

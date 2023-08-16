@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,12 +16,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Wallpaper(),
+      home: const Wallpaper(),
     );
   }
 }
 
 class Wallpaper extends StatefulWidget {
+  const Wallpaper({super.key});
+
   @override
   GridViewDemo createState() => GridViewDemo();
 }
@@ -55,44 +57,42 @@ class GridViewDemo extends State<Wallpaper> {
           padding: const EdgeInsets.all(11.0),
           child: GridView.builder(
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                crossAxisCount: 2 ,
+              crossAxisCount: 2,
               mainAxisSpacing: 11,
               crossAxisSpacing: 11,
-              childAspectRatio: 2/2,
+              childAspectRatio: 2 / 2,
             ),
-              itemCount: listData.length,
-              itemBuilder: (context,index) {
+            itemCount: listData.length,
+            itemBuilder: (context, index) {
               var crrIndex = listData[index];
-                if(index == 0){
-                  return    InkWell(
-                    onTap: (){
-                      print("tapped ${crrIndex["name"].toString()}");
-                    },
-                    child: Container(
-                      color: crrIndex["color"] as Color,
-                      child: Center(
-                          child: Text(
-                            crrIndex['name'].toString(),
-                            style: const TextStyle(fontSize: 20, color: Colors.white),
-                          )),
-                    ),
-                  );
-                }
-                else{
-                  return   Container(
+              if (index == 0) {
+                return InkWell(
+                  onTap: () {},
+                  child: Container(
                     color: crrIndex["color"] as Color,
                     child: Center(
                         child: Text(
-                          crrIndex['name'].toString(),
-                          style: const TextStyle(fontSize: 20, color: Colors.white),
-                        )),
-                  );
-                }},
+                      crrIndex['name'].toString(),
+                      style: const TextStyle(fontSize: 20, color: Colors.white),
+                    )),
+                  ),
+                );
+              } else {
+                return Container(
+                  color: crrIndex["color"] as Color,
+                  child: Center(
+                      child: Text(
+                    crrIndex['name'].toString(),
+                    style: const TextStyle(fontSize: 20, color: Colors.white),
+                  )),
+                );
+              }
+            },
           ),
         ));
   }
 }
-
+//change
 /*
 //GridView.extent() use divide according to space (width) 100 is width main property is maxCrossAxisExtent:200/100/150
 Scaffold(
